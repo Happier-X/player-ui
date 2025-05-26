@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>设置 - MusicBox</title>
+    <title>统计 - MusicBox</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
@@ -23,184 +23,312 @@
         <div class="bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200">
             <!-- 主导航 -->
             <div class="flex items-center justify-between p-4">
-                <div class="flex items-center space-x-8">
-                    <!-- 主要导航 -->
+                <div class="flex items-center space-x-8">                    <!-- 主要导航 -->
                     <nav class="flex items-center space-x-6">
-                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
-                            <i data-lucide="home" class="w-4 h-4 mr-2"></i>
-                            主页
+                        <a href="home.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="music" class="w-4 h-4 mr-2"></i>
+                            歌曲
                         </a>
-                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
-                            <i data-lucide="library" class="w-4 h-4 mr-2"></i>
-                            音乐库
+                        <a href="library.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="disc" class="w-4 h-4 mr-2"></i>
+                            专辑
                         </a>
-                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                        <a href="playlist.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                            歌手
+                        </a>
+                        <a href="search.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
                             <i data-lucide="list-music" class="w-4 h-4 mr-2"></i>
-                            播放列表
+                            歌单
                         </a>
-                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
-                            <i data-lucide="search" class="w-4 h-4 mr-2"></i>
-                            搜索
+                        <a href="settings.html" class="flex items-center px-4 py-2 text-purple-600 bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="bar-chart-3" class="w-4 h-4 mr-2"></i>
+                            统计
                         </a>
                     </nav>
                 </div>
-                
-                <div class="flex items-center space-x-4">
-                    <!-- 搜索框 -->
+                  <div class="flex items-center space-x-4">                    <!-- 搜索框 -->
                     <div class="relative">
-                        <input type="text" placeholder="搜索设置..." 
+                        <input type="text" placeholder="搜索统计数据..." 
                                class="pl-10 pr-4 py-2 border border-gray-300 rounded-full w-80 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200">
                         <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-gray-400"></i>
                     </div>
-                      <!-- 右侧功能 -->
-                    <button class="p-2 rounded-full bg-purple-100 text-purple-600">
-                        <i data-lucide="settings" class="w-5 h-5"></i>
-                    </button>
                 </div>
             </div>
         </div>
 
         <!-- 主内容区 -->
         <div class="flex-1 flex overflow-hidden">
-            <!-- 设置菜单 -->
+            <!-- 统计菜单 -->
             <div class="w-80 bg-white border-r border-gray-200 p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-6">设置</h2>                <nav class="space-y-2">
+                <h2 class="text-xl font-bold text-gray-900 mb-6">音乐统计</h2>
+                <nav class="space-y-2">
                     <a href="#" class="flex items-center p-3 rounded-lg bg-purple-50 text-purple-700 font-medium">
-                        <i data-lucide="volume-2" class="w-5 h-5 mr-3"></i>
-                        音频设置
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 mr-3"></i>
+                        播放统计
                     </a>
                     <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
-                        <i data-lucide="palette" class="w-5 h-5 mr-3"></i>
-                        外观主题
+                        <i data-lucide="pie-chart" class="w-5 h-5 mr-3"></i>
+                        音乐类型
                     </a>
                     <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
-                        <i data-lucide="download" class="w-5 h-5 mr-3"></i>
-                        下载设置
+                        <i data-lucide="activity" class="w-5 h-5 mr-3"></i>
+                        收听趋势
                     </a>
                     <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
-                        <i data-lucide="shield" class="w-5 h-5 mr-3"></i>
-                        隐私安全
+                        <i data-lucide="clock" class="w-5 h-5 mr-3"></i>
+                        时间分析
                     </a>
                     <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
-                        <i data-lucide="smartphone" class="w-5 h-5 mr-3"></i>
-                        设备管理
+                        <i data-lucide="heart" class="w-5 h-5 mr-3"></i>
+                        喜爱分析
                     </a>
                     <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
-                        <i data-lucide="help-circle" class="w-5 h-5 mr-3"></i>
-                        帮助支持
+                        <i data-lucide="calendar" class="w-5 h-5 mr-3"></i>
+                        月度报告
                     </a>
                     <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
-                        <i data-lucide="info" class="w-5 h-5 mr-3"></i>
-                        关于应用
+                        <i data-lucide="award" class="w-5 h-5 mr-3"></i>
+                        年度总结
                     </a>
                 </nav>
-            </div>            <!-- 设置内容 -->
+            </div>
+            
+            <!-- 统计内容 -->
             <div class="flex-1 p-6 overflow-y-auto">
-                <!-- 音频设置页面 -->
-                <div class="max-w-4xl">
+                <!-- 播放统计页面 -->
+                <div class="max-w-6xl">
                     <div class="mb-8">
-                        <h1 class="text-3xl font-bold text-gray-900 mb-2">音频设置</h1>
-                        <p class="text-gray-600">调整你的音频播放体验和音质偏好</p>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">播放统计</h1>
+                        <p class="text-gray-600">查看你的音乐收听习惯和偏好分析</p>
                     </div>
 
-                    <!-- 播放质量 -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">播放质量</h2>
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-3">音频质量</label>
-                                <div class="space-y-2">
-                                    <label class="flex items-center">
-                                        <input type="radio" name="quality" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-gray-300">
-                                        <span class="ml-3 text-sm text-gray-700">标准质量 (128 kbps)</span>
-                                    </label>
-                                    <label class="flex items-center">
-                                        <input type="radio" name="quality" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-gray-300" checked>
-                                        <span class="ml-3 text-sm text-gray-700">高质量 (320 kbps)</span>
-                                    </label>
-                                    <label class="flex items-center">
-                                        <input type="radio" name="quality" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-gray-300">
-                                        <span class="ml-3 text-sm text-gray-700">无损质量 (FLAC)</span>
-                                    </label>
+                    <!-- 统计概览 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-purple-100 text-sm font-medium">总播放时长</p>
+                                    <h3 class="text-2xl font-bold">1,247小时</h3>
+                                    <p class="text-purple-100 text-sm">+12% 比上月</p>
                                 </div>
+                                <i data-lucide="clock" class="w-8 h-8 text-purple-200"></i>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-100 text-sm font-medium">播放歌曲数</p>
+                                    <h3 class="text-2xl font-bold">8,954首</h3>
+                                    <p class="text-blue-100 text-sm">+8% 比上月</p>
+                                </div>
+                                <i data-lucide="music" class="w-8 h-8 text-blue-200"></i>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-100 text-sm font-medium">发现新歌</p>
+                                    <h3 class="text-2xl font-bold">342首</h3>
+                                    <p class="text-green-100 text-sm">+25% 比上月</p>
+                                </div>
+                                <i data-lucide="sparkles" class="w-8 h-8 text-green-200"></i>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-orange-100 text-sm font-medium">最爱歌手</p>
+                                    <h3 class="text-2xl font-bold">86位</h3>
+                                    <p class="text-orange-100 text-sm">+5% 比上月</p>
+                                </div>
+                                <i data-lucide="heart" class="w-8 h-8 text-orange-200"></i>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 音量控制 -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">音量控制</h2>
-                        <div class="space-y-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">主音量</label>
+                    <!-- 热门歌曲排行 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">本月热播榜单</h2>
+                            <div class="space-y-4">
                                 <div class="flex items-center space-x-4">
-                                    <i data-lucide="volume-1" class="w-4 h-4 text-gray-400"></i>
-                                    <input type="range" min="0" max="100" value="80" class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider">
-                                    <i data-lucide="volume-2" class="w-4 h-4 text-gray-400"></i>
+                                    <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="music" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">稻香</h3>
+                                        <p class="text-sm text-gray-500">周杰伦</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">124次</p>
+                                        <p class="text-xs text-gray-500">8小时26分</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="music" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">夜曲</h3>
+                                        <p class="text-sm text-gray-500">周杰伦</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">98次</p>
+                                        <p class="text-xs text-gray-500">6小时42分</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gradient-to-r from-amber-600 to-amber-700 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="music" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">青花瓷</h3>
+                                        <p class="text-sm text-gray-500">周杰伦</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">87次</p>
+                                        <p class="text-xs text-gray-500">5小时53分</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">4</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="music" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">告白气球</h3>
+                                        <p class="text-sm text-gray-500">周杰伦</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">76次</p>
+                                        <p class="text-xs text-gray-500">4小时18分</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">5</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="music" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">简单爱</h3>
+                                        <p class="text-sm text-gray-500">周杰伦</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">65次</p>
+                                        <p class="text-xs text-gray-500">3小时47分</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">音量均衡</h3>
-                                    <p class="text-sm text-gray-500">自动调整不同歌曲间的音量差异</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">热门歌手排行</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="user" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">周杰伦</h3>
+                                        <p class="text-sm text-gray-500">华语流行</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">1,247次</p>
+                                        <p class="text-xs text-gray-500">67小时</p>
+                                    </div>
                                 </div>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" class="sr-only peer" checked>
-                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                                </label>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="user" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">林俊杰</h3>
+                                        <p class="text-sm text-gray-500">华语流行</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">892次</p>
+                                        <p class="text-xs text-gray-500">45小时</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gradient-to-r from-amber-600 to-amber-700 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="user" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">邓紫棋</h3>
+                                        <p class="text-sm text-gray-500">华语流行</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">654次</p>
+                                        <p class="text-xs text-gray-500">32小时</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">4</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="user" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">薛之谦</h3>
+                                        <p class="text-sm text-gray-500">华语流行</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">587次</p>
+                                        <p class="text-xs text-gray-500">28小时</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold text-sm">5</div>
+                                    <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="user" class="w-6 h-6 text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-medium text-gray-900">陈奕迅</h3>
+                                        <p class="text-sm text-gray-500">华语流行</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-sm font-medium text-gray-900">423次</p>
+                                        <p class="text-xs text-gray-500">22小时</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 音效增强 -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">音效增强</h2>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">环绕声效果</h3>
-                                    <p class="text-sm text-gray-500">增强音频的空间感和立体感</p>
-                                </div>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" class="sr-only peer">
-                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                                </label>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">低音增强</h3>
-                                    <p class="text-sm text-gray-500">增强低频音效表现</p>
-                                </div>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" class="sr-only peer" checked>
-                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 输出设备 -->
+                    <!-- 收听习惯分析 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">输出设备</h2>
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">音频输出设备</label>
-                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
-                                    <option>默认音频设备</option>
-                                    <option>扬声器 (Realtek High Definition Audio)</option>
-                                    <option>耳机 (Bluetooth)</option>
-                                    <option>USB 音频设备</option>
-                                </select>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">独占模式</h3>
-                                    <p class="text-sm text-gray-500">获得更好的音频性能，但可能影响其他应用</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">收听习惯分析</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i data-lucide="clock" class="w-8 h-8 text-purple-600"></i>
                                 </div>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" class="sr-only peer">
-                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                                </label>
+                                <h3 class="font-medium text-gray-900 mb-1">活跃时段</h3>
+                                <p class="text-sm text-gray-500 mb-2">晚上 20:00 - 23:00</p>
+                                <p class="text-2xl font-bold text-purple-600">3小时</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i data-lucide="repeat" class="w-8 h-8 text-blue-600"></i>
+                                </div>
+                                <h3 class="font-medium text-gray-900 mb-1">重复播放</h3>
+                                <p class="text-sm text-gray-500 mb-2">平均重复次数</p>
+                                <p class="text-2xl font-bold text-blue-600">4.2次</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i data-lucide="shuffle" class="w-8 h-8 text-green-600"></i>
+                                </div>
+                                <h3 class="font-medium text-gray-900 mb-1">跳过率</h3>
+                                <p class="text-sm text-gray-500 mb-2">歌曲跳过比例</p>
+                                <p class="text-2xl font-bold text-green-600">18%</p>
                             </div>
                         </div>
                     </div>

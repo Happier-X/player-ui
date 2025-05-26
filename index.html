@@ -19,11 +19,11 @@
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }        .prototype-title {
-            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-            color: white;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            color: #374151;
             padding: 12px 24px;
             font-weight: 600;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -42,12 +42,21 @@
             justify-content: center;
             cursor: pointer;
             transition: background-color 0.2s;
-        }
-        .control-btn:hover {
+        }        .control-btn:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
         .control-btn.close:hover {
             background-color: #e53e3e;
+        }
+        .control-btn[title="设置"]:hover {
+            background-color: rgba(147, 51, 234, 0.2);
+        }
+        .control-btn[title="设置"]:hover i {
+            animation: rotate 0.3s ease-in-out;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(45deg); }
         }
         iframe {
             border: none;
@@ -75,17 +84,20 @@
             </div>
         </div>
           <!-- 原型展示区域 -->
-        <div class="space-y-8">
-            <!-- 主界面 - 音乐推荐 -->
+        <div class="space-y-8">            <!-- 歌曲界面 -->
             <div class="page-container">
-                <div class="prototype-container">                    <div class="prototype-title">
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">🎵 歌曲模块</h2>
+                <p class="text-white/70 text-center mb-6">浏览和管理你的音乐收藏，发现新歌曲</p>
+                <div class="prototype-container"><div class="prototype-title">
                         <div class="flex items-center">
                             <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
                                 <i data-lucide="music" class="w-4 h-4 text-white"></i>
-                            </div>
-                            <span class="font-bold mr-3">MusicBox</span>
+                            </div>                            <span class="font-bold mr-3">MusicBox</span>
                         </div>
                         <div class="window-controls">
+                            <div class="control-btn" title="设置" onclick="window.open('settings.html', '_blank')">
+                                <i data-lucide="settings" class="w-3 h-3"></i>
+                            </div>
                             <div class="control-btn" title="最小化">
                                 <i data-lucide="minus" class="w-3 h-3"></i>
                             </div>
@@ -100,18 +112,21 @@
                     <iframe src="home.html" height="675"></iframe>
                 </div>
             </div>
-            
-            <!-- 音乐库界面 -->
+              <!-- 专辑界面 -->
             <div class="page-container">
-                <div class="prototype-container">                    <div class="prototype-title">
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">💿 专辑模块</h2>
+                <p class="text-white/70 text-center mb-6">按专辑组织你的音乐库，探索完整专辑体验</p>
+                <div class="prototype-container"><div class="prototype-title">
                         <div class="flex items-center">
                             <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
                                 <i data-lucide="music" class="w-4 h-4 text-white"></i>
                             </div>
                             <span class="font-bold mr-3">MusicBox</span>
-                            
-                        </div>
+                              </div>
                         <div class="window-controls">
+                            <div class="control-btn" title="设置" onclick="window.open('settings.html', '_blank')">
+                                <i data-lucide="settings" class="w-3 h-3"></i>
+                            </div>
                             <div class="control-btn" title="最小化">
                                 <i data-lucide="minus" class="w-3 h-3"></i>
                             </div>
@@ -126,18 +141,21 @@
                     <iframe src="library.html" height="675"></iframe>
                 </div>
             </div>
-            
-            <!-- 播放列表界面 -->
+              <!-- 歌手界面 -->
             <div class="page-container">
-                <div class="prototype-container">                    <div class="prototype-title">
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">👥 歌手模块</h2>
+                <p class="text-white/70 text-center mb-6">关注你喜爱的歌手，查看艺人信息和作品</p>
+                <div class="prototype-container"><div class="prototype-title">
                         <div class="flex items-center">
                             <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
                                 <i data-lucide="music" class="w-4 h-4 text-white"></i>
-                            </div>
-                            <span class="font-bold mr-3">MusicBox</span>
+                            </div>                            <span class="font-bold mr-3">MusicBox</span>
                             
                         </div>
                         <div class="window-controls">
+                            <div class="control-btn" title="设置" onclick="window.open('settings.html', '_blank')">
+                                <i data-lucide="settings" class="w-3 h-3"></i>
+                            </div>
                             <div class="control-btn" title="最小化">
                                 <i data-lucide="minus" class="w-3 h-3"></i>
                             </div>
@@ -152,18 +170,21 @@
                     <iframe src="playlist.html" height="675"></iframe>
                 </div>
             </div>
-            
-            <!-- 搜索界面 -->
+              <!-- 歌单界面 -->
             <div class="page-container">
-                <div class="prototype-container">                    <div class="prototype-title">
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">📋 歌单模块</h2>
+                <p class="text-white/70 text-center mb-6">创建和管理个人歌单，发现热门精选歌单</p>
+                <div class="prototype-container"><div class="prototype-title">
                         <div class="flex items-center">
                             <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
                                 <i data-lucide="music" class="w-4 h-4 text-white"></i>
                             </div>
                             <span class="font-bold mr-3">MusicBox</span>
                             
-                        </div>
-                        <div class="window-controls">
+                        </div>                        <div class="window-controls">
+                            <div class="control-btn" title="设置" onclick="window.open('settings.html', '_blank')">
+                                <i data-lucide="settings" class="w-3 h-3"></i>
+                            </div>
                             <div class="control-btn" title="最小化">
                                 <i data-lucide="minus" class="w-3 h-3"></i>
                             </div>
@@ -178,18 +199,21 @@
                     <iframe src="search.html" height="675"></iframe>
                 </div>
             </div>
-            
-            <!-- 播放器详情界面 -->
+              <!-- 播放器详情界面 -->
             <div class="page-container">
-                <div class="prototype-container">                    <div class="prototype-title">
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">🎧 播放器界面</h2>
+                <p class="text-white/70 text-center mb-6">沉浸式音乐播放体验，专注聆听当前歌曲</p>
+                <div class="prototype-container"><div class="prototype-title">
                         <div class="flex items-center">
                             <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
                                 <i data-lucide="music" class="w-4 h-4 text-white"></i>
                             </div>
                             <span class="font-bold mr-3">MusicBox</span>
-                            
-                        </div>
+                              </div>
                         <div class="window-controls">
+                            <div class="control-btn" title="设置" onclick="window.open('settings.html', '_blank')">
+                                <i data-lucide="settings" class="w-3 h-3"></i>
+                            </div>
                             <div class="control-btn" title="最小化">
                                 <i data-lucide="minus" class="w-3 h-3"></i>
                             </div>
@@ -204,18 +228,21 @@
                     <iframe src="player.html" height="675"></iframe>
                 </div>
             </div>
-            
-            <!-- 设置界面 -->
+              <!-- 统计界面 -->
             <div class="page-container">
-                <div class="prototype-container">                    <div class="prototype-title">
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">📊 统计模块</h2>
+                <p class="text-white/70 text-center mb-6">分析你的音乐收听习惯，查看详细统计数据</p>
+                <div class="prototype-container"><div class="prototype-title">
                         <div class="flex items-center">
                             <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
                                 <i data-lucide="music" class="w-4 h-4 text-white"></i>
                             </div>
                             <span class="font-bold mr-3">MusicBox</span>
-                            
-                        </div>
+                              </div>
                         <div class="window-controls">
+                            <div class="control-btn" title="设置" onclick="window.open('settings.html', '_blank')">
+                                <i data-lucide="settings" class="w-3 h-3"></i>
+                            </div>
                             <div class="control-btn" title="最小化">
                                 <i data-lucide="minus" class="w-3 h-3"></i>
                             </div>

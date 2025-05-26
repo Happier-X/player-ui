@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜索 - MusicBox</title>
+    <title>歌单 - MusicBox</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
@@ -30,38 +30,36 @@
             <!-- 主导航 -->
             <div class="flex items-center justify-between p-4">
                 <div class="flex items-center space-x-8">
-                    <!-- 主要导航 -->
-                    <nav class="flex items-center space-x-6">
-                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
-                            <i data-lucide="home" class="w-4 h-4 mr-2"></i>
-                            主页
+                    <!-- 主要导航 -->                    <nav class="flex items-center space-x-6">
+                        <a href="home.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="music" class="w-4 h-4 mr-2"></i>
+                            歌曲
                         </a>
-                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
-                            <i data-lucide="library" class="w-4 h-4 mr-2"></i>
-                            音乐库
+                        <a href="library.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="disc" class="w-4 h-4 mr-2"></i>
+                            专辑
                         </a>
-                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                        <a href="playlist.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                            歌手
+                        </a>
+                        <a href="search.html" class="flex items-center px-4 py-2 bg-purple-600 text-white rounded-full font-medium transition-colors">
                             <i data-lucide="list-music" class="w-4 h-4 mr-2"></i>
-                            播放列表
+                            歌单
                         </a>
-                        <a href="#" class="flex items-center px-4 py-2 bg-purple-600 text-white rounded-full font-medium transition-colors">
-                            <i data-lucide="search" class="w-4 h-4 mr-2"></i>
-                            搜索
+                        <a href="settings.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="bar-chart-3" class="w-4 h-4 mr-2"></i>
+                            统计
                         </a>
                     </nav>
                 </div>
                 
-                <div class="flex items-center space-x-4">
-                    <!-- 搜索框 -->
+                <div class="flex items-center space-x-4">                    <!-- 搜索框 -->
                     <div class="relative">
                         <input type="text" placeholder="搜索音乐、艺术家、专辑、播放列表..." 
                                class="pl-10 pr-4 py-2 border border-gray-300 rounded-full w-96 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200">
                         <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-gray-400"></i>
                     </div>
-                      <!-- 右侧功能 -->
-                    <button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                        <i data-lucide="settings" class="w-5 h-5 text-gray-600"></i>
-                    </button>
                 </div>
             </div>
             
