@@ -23,6 +23,23 @@
         }
         .main-content {
             height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* 自定义滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -73,173 +90,371 @@
                         <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-gray-400"></i>
                     </div>
                 </div></div>
-        </div>
+        </div>        <!-- 主内容区域 -->
+        <div class="flex-1 p-6 overflow-hidden">
+            <!-- 主布局：左侧内容 + 右侧推荐 -->
+            <div class="flex gap-6 h-full">
+                <!-- 左侧区域：轮播图和歌曲列表 -->
+                <div class="w-2/3 space-y-6 flex flex-col h-full">
+                    <!-- 轮播图 -->
+                    <div class="rounded-xl overflow-hidden relative shadow-lg">
+                        <!-- 轮播内容 -->
+                        <div class="relative h-64">
+                            <!-- 轮播项 1 - 当前显示 -->
+                            <div class="absolute inset-0 flex">
+                                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1200&h=400&fit=crop" class="w-2/3 object-cover" alt="音乐盛典">
+                                <div class="w-1/3 bg-gradient-to-r from-purple-700 to-indigo-800 p-8 flex flex-col justify-center text-white">
+                                    <span class="text-purple-200 text-sm font-medium tracking-wide uppercase mb-2">新专辑发布</span>
+                                    <h3 class="text-2xl font-bold mb-3">2025年度热门专辑精选</h3>
+                                    <p class="text-purple-100 mb-4">探索今年最受欢迎的音乐作品</p>
+                                    <button class="bg-white text-purple-700 px-4 py-2 rounded-md text-sm font-medium inline-flex items-center hover:bg-purple-50 transition-colors w-max">
+                                        立即查看 <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 轮播导航点 -->
+                            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <button class="w-2 h-2 rounded-full bg-white opacity-100"></button>
+                                <button class="w-2 h-2 rounded-full bg-white opacity-60"></button>
+                                <button class="w-2 h-2 rounded-full bg-white opacity-60"></button>
+                            </div>
+                            
+                            <!-- 轮播箭头 -->
+                            <button class="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 rounded-full bg-black/30 text-white backdrop-blur-sm hover:bg-black/50 transition-colors">
+                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                            </button>
+                            <button class="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 rounded-full bg-black/30 text-white backdrop-blur-sm hover:bg-black/50 transition-colors">
+                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                      <!-- 全部歌曲 -->
+                    <div class="bg-white rounded-xl shadow-sm p-5 flex-1 flex flex-col overflow-hidden">
+                        <div class="flex items-center justify-between mb-5">
+                            <h3 class="text-xl font-semibold text-gray-800">全部歌曲</h3>
+                            <div class="flex items-center text-sm">
+                                <span class="text-gray-500 mr-2">共 234 首歌曲</span>
+                                <button class="text-purple-600 hover:text-purple-700 font-medium flex items-center">
+                                    播放全部 <i data-lucide="play" class="w-4 h-4 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 表头 -->
+                        <div class="grid grid-cols-12 py-3 text-sm text-gray-500 border-b border-gray-100">
+                            <div class="col-span-1">#</div>
+                            <div class="col-span-5">歌曲</div>
+                            <div class="col-span-3">专辑</div>
+                            <div class="col-span-2">时长</div>
+                            <div class="col-span-1"></div>
+                        </div>
+                          <!-- 歌曲列表 -->
+                        <div class="divide-y divide-gray-50 overflow-y-auto flex-1">
+                            <!-- 歌曲项 1 -->
+                            <div class="grid grid-cols-12 py-3 items-center hover:bg-gray-50 rounded-md transition-colors cursor-pointer group">
+                                <div class="col-span-1 text-gray-400">01</div>
+                                <div class="col-span-5 flex items-center space-x-3">
+                                    <div class="relative w-10 h-10 rounded overflow-hidden shadow-sm flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=60&h=60&fit=crop" class="w-full h-full object-cover" alt="歌曲封面">
+                                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <i data-lucide="play" class="w-5 h-5 text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">夜的钢琴曲五</h4>
+                                        <p class="text-sm text-gray-500">石进</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-3 text-sm text-gray-500">钢琴曲集合</div>
+                                <div class="col-span-2 text-sm text-gray-500">4:23</div>
+                                <div class="col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="heart" class="w-4 h-4 text-gray-400 hover:text-red-500"></i>
+                                    </button>
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 歌曲项 2 -->
+                            <div class="grid grid-cols-12 py-3 items-center hover:bg-gray-50 rounded-md transition-colors cursor-pointer group">
+                                <div class="col-span-1 text-gray-400">02</div>
+                                <div class="col-span-5 flex items-center space-x-3">
+                                    <div class="relative w-10 h-10 rounded overflow-hidden shadow-sm flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=60&h=60&fit=crop" class="w-full h-full object-cover" alt="歌曲封面">
+                                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <i data-lucide="play" class="w-5 h-5 text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Bohemian Rhapsody</h4>
+                                        <p class="text-sm text-gray-500">Queen</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-3 text-sm text-gray-500">A Night At The Opera</div>
+                                <div class="col-span-2 text-sm text-gray-500">5:55</div>
+                                <div class="col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="heart" class="w-4 h-4 text-gray-400 hover:text-red-500"></i>
+                                    </button>
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 歌曲项 3 -->
+                            <div class="grid grid-cols-12 py-3 items-center hover:bg-gray-50 rounded-md transition-colors cursor-pointer group">
+                                <div class="col-span-1 text-gray-400">03</div>
+                                <div class="col-span-5 flex items-center space-x-3">
+                                    <div class="relative w-10 h-10 rounded overflow-hidden shadow-sm flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=60&h=60&fit=crop" class="w-full h-full object-cover" alt="歌曲封面">
+                                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <i data-lucide="play" class="w-5 h-5 text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Shape of You</h4>
+                                        <p class="text-sm text-gray-500">Ed Sheeran</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-3 text-sm text-gray-500">÷ (Divide)</div>
+                                <div class="col-span-2 text-sm text-gray-500">3:53</div>
+                                <div class="col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="heart" class="w-4 h-4 text-gray-400 hover:text-red-500"></i>
+                                    </button>
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 歌曲项 4 -->
+                            <div class="grid grid-cols-12 py-3 items-center hover:bg-gray-50 rounded-md transition-colors cursor-pointer group">
+                                <div class="col-span-1 text-gray-400">04</div>
+                                <div class="col-span-5 flex items-center space-x-3">
+                                    <div class="relative w-10 h-10 rounded overflow-hidden shadow-sm flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=60&h=60&fit=crop" class="w-full h-full object-cover" alt="歌曲封面">
+                                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <i data-lucide="play" class="w-5 h-5 text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Bad Guy</h4>
+                                        <p class="text-sm text-gray-500">Billie Eilish</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-3 text-sm text-gray-500">When We All Fall Asleep...</div>
+                                <div class="col-span-2 text-sm text-gray-500">3:14</div>
+                                <div class="col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="heart" class="w-4 h-4 text-gray-400 hover:text-red-500"></i>
+                                    </button>
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 歌曲项 5 -->
+                            <div class="grid grid-cols-12 py-3 items-center hover:bg-gray-50 rounded-md transition-colors cursor-pointer group">
+                                <div class="col-span-1 text-gray-400">05</div>
+                                <div class="col-span-5 flex items-center space-x-3">
+                                    <div class="relative w-10 h-10 rounded overflow-hidden shadow-sm flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=60&h=60&fit=crop" class="w-full h-full object-cover" alt="歌曲封面">
+                                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <i data-lucide="play" class="w-5 h-5 text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Blinding Lights</h4>
+                                        <p class="text-sm text-gray-500">The Weeknd</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-3 text-sm text-gray-500">After Hours</div>
+                                <div class="col-span-2 text-sm text-gray-500">3:20</div>
+                                <div class="col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="heart" class="w-4 h-4 text-gray-400 hover:text-red-500"></i>
+                                    </button>
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 歌曲项 6 -->
+                            <div class="grid grid-cols-12 py-3 items-center hover:bg-gray-50 rounded-md transition-colors cursor-pointer group">
+                                <div class="col-span-1 text-gray-400">06</div>
+                                <div class="col-span-5 flex items-center space-x-3">
+                                    <div class="relative w-10 h-10 rounded overflow-hidden shadow-sm flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1549213783-8284d0336c4f?w=60&h=60&fit=crop" class="w-full h-full object-cover" alt="歌曲封面">
+                                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <i data-lucide="play" class="w-5 h-5 text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Starboy</h4>
+                                        <p class="text-sm text-gray-500">The Weeknd, Daft Punk</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-3 text-sm text-gray-500">Starboy</div>
+                                <div class="col-span-2 text-sm text-gray-500">3:50</div>
+                                <div class="col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="heart" class="w-4 h-4 text-gray-400 hover:text-red-500"></i>
+                                    </button>
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 歌曲项 7 -->
+                            <div class="grid grid-cols-12 py-3 items-center hover:bg-gray-50 rounded-md transition-colors cursor-pointer group">
+                                <div class="col-span-1 text-gray-400">07</div>
+                                <div class="col-span-5 flex items-center space-x-3">
+                                    <div class="relative w-10 h-10 rounded overflow-hidden shadow-sm flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=60&h=60&fit=crop" class="w-full h-full object-cover" alt="歌曲封面">
+                                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <i data-lucide="play" class="w-5 h-5 text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Dance Monkey</h4>
+                                        <p class="text-sm text-gray-500">Tones and I</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-3 text-sm text-gray-500">The Kids Are Coming</div>
+                                <div class="col-span-2 text-sm text-gray-500">3:29</div>
+                                <div class="col-span-1 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="heart" class="w-4 h-4 text-gray-400 hover:text-red-500"></i>
+                                    </button>
+                                    <button class="p-1.5 hover:bg-gray-200 rounded-full">
+                                        <i data-lucide="more-horizontal" class="w-4 h-4 text-gray-400"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                          <!-- 分页控制 -->
+                        <div class="mt-4 flex justify-between items-center pt-2 border-t border-gray-100">
+                            <div class="text-sm text-gray-500">显示 1-7 项，共 234 项</div>
+                            <div class="flex space-x-1">
+                                <button class="w-8 h-8 rounded flex items-center justify-center text-gray-500 hover:bg-gray-100">
+                                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                                </button>
+                                <button class="w-8 h-8 rounded flex items-center justify-center bg-purple-600 text-white">1</button>
+                                <button class="w-8 h-8 rounded flex items-center justify-center text-gray-500 hover:bg-gray-100">2</button>
+                                <button class="w-8 h-8 rounded flex items-center justify-center text-gray-500 hover:bg-gray-100">3</button>
+                                <button class="w-8 h-8 rounded flex items-center justify-center text-gray-500 hover:bg-gray-100">...</button>
+                                <button class="w-8 h-8 rounded flex items-center justify-center text-gray-500 hover:bg-gray-100">12</button>
+                                <button class="w-8 h-8 rounded flex items-center justify-center text-gray-500 hover:bg-gray-100">
+                                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                <!-- 右侧区域：推荐歌手和专辑 -->
+                <div class="w-1/3 h-full flex flex-col">
+                    <!-- 右侧内容区 - 分成上下两半 -->
+                    <div class="grid grid-rows-2 h-full gap-6">
+                        <!-- 推荐艺术家 - 上半部分 -->
+                        <div class="bg-white rounded-xl shadow-sm p-5 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold text-gray-800">热门歌手</h3>
+                                <button class="text-purple-600 hover:text-purple-700 text-sm font-medium">查看全部</button>
+                            </div>
+                            
+                            <div class="space-y-4 overflow-y-auto flex-1">
+                                <!-- 艺术家项 1 -->
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop" class="w-12 h-12 rounded-full object-cover border border-gray-200" alt="歌手头像">
+                                <div class="ml-3">
+                                    <h4 class="font-medium text-gray-800">Ed Sheeran</h4>
+                                    <p class="text-sm text-gray-500">流行 | 12 首歌曲</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="ml-auto w-4 h-4 text-gray-400"></i>
+                            </a>
+                            
+                            <!-- 艺术家项 2 -->
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop" class="w-12 h-12 rounded-full object-cover border border-gray-200" alt="歌手头像">
+                                <div class="ml-3">
+                                    <h4 class="font-medium text-gray-800">Taylor Swift</h4>
+                                    <p class="text-sm text-gray-500">流行 | 18 首歌曲</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="ml-auto w-4 h-4 text-gray-400"></i>
+                            </a>
+                            
+                            <!-- 艺术家项 3 -->
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=80&h=80&fit=crop" class="w-12 h-12 rounded-full object-cover border border-gray-200" alt="歌手头像">
+                                <div class="ml-3">
+                                    <h4 class="font-medium text-gray-800">The Weeknd</h4>
+                                    <p class="text-sm text-gray-500">R&B | 9 首歌曲</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="ml-auto w-4 h-4 text-gray-400"></i>
+                            </a>
+                            
+                            <!-- 艺术家项 4 -->
+                            <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop" class="w-12 h-12 rounded-full object-cover border border-gray-200" alt="歌手头像">
+                                <div class="ml-3">
+                                    <h4 class="font-medium text-gray-800">Billie Eilish</h4>
+                                    <p class="text-sm text-gray-500">流行/另类 | 7 首歌曲</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="ml-auto w-4 h-4 text-gray-400"></i>
+                            </a>                        </div>
+                        </div>
 
-        <!-- 主内容区域 -->
-        <div class="flex-1 p-8 overflow-y-auto">
-            <!-- 欢迎区域 -->
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">早上好，音乐爱好者！</h2>
-                <p class="text-gray-600">准备好开始今天的音乐之旅了吗？</p>
-            </div>            
-            <!-- 为你推荐 -->
-            <div class="mb-8">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-xl font-semibold text-gray-800">为你推荐</h3>
-                    <button class="text-purple-600 hover:text-purple-700 font-medium">查看全部</button>
-                </div>
-                <div class="grid grid-cols-6 gap-4">
-                    <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer hover-scale">
-                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=160&h=160&fit=crop" 
-                             class="w-full aspect-square rounded-lg mb-3 shadow-sm">
-                        <h4 class="font-semibold text-sm mb-1 text-gray-800">夜的钢琴曲</h4>
-                        <p class="text-xs text-gray-600">石进</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer hover-scale">
-                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=160&h=160&fit=crop" 
-                             class="w-full aspect-square rounded-lg mb-3 shadow-sm">
-                        <h4 class="font-semibold text-sm mb-1 text-gray-800">经典摇滚合集</h4>
-                        <p class="text-xs text-gray-600">Various Artists</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer hover-scale">
-                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=160&h=160&fit=crop" 
-                             class="w-full aspect-square rounded-lg mb-3 shadow-sm">
-                        <h4 class="font-semibold text-sm mb-1 text-gray-800">流行金曲</h4>
-                        <p class="text-xs text-gray-600">热门歌手</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer hover-scale">
-                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=160&h=160&fit=crop" 
-                             class="w-full aspect-square rounded-lg mb-3 shadow-sm">
-                        <h4 class="font-semibold text-sm mb-1 text-gray-800">民谣精选</h4>
-                        <p class="text-xs text-gray-600">独立音乐人</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer hover-scale">
-                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=160&h=160&fit=crop" 
-                             class="w-full aspect-square rounded-lg mb-3 shadow-sm">
-                        <h4 class="font-semibold text-sm mb-1 text-gray-800">古典音乐</h4>
-                        <p class="text-xs text-gray-600">贝多芬精选</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer hover-scale">
-                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=160&h=160&fit=crop" 
-                             class="w-full aspect-square rounded-lg mb-3 shadow-sm">
-                        <h4 class="font-semibold text-sm mb-1 text-gray-800">电子音乐</h4>
-                        <p class="text-xs text-gray-600">EDM精选</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 最近播放 -->
-            <div class="mb-8">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-xl font-semibold text-gray-800">最近播放</h3>
-                    <button class="text-purple-600 hover:text-purple-700 font-medium">查看全部</button>
-                </div>
-                <div class="bg-white rounded-lg shadow-sm">
-                    <div class="p-4 space-y-3">
-                        <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=50&h=50&fit=crop" 
-                                 class="w-12 h-12 rounded-lg mr-4">
-                            <div class="flex-1">
-                                <h4 class="font-medium text-gray-800">Canon in D</h4>
-                                <p class="text-sm text-gray-600">Pachelbel</p>
+                        <!-- 推荐专辑 - 下半部分 -->
+                        <div class="bg-white rounded-xl shadow-sm p-5 flex flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold text-gray-800">热门专辑</h3>
+                                <button class="text-purple-600 hover:text-purple-700 text-sm font-medium">查看全部</button>
                             </div>
-                            <div class="text-sm text-gray-500 mr-4">3:45</div>
-                            <button class="p-2 hover:bg-gray-200 rounded-full">
-                                <i data-lucide="play" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        
-                        <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=50&h=50&fit=crop" 
-                                 class="w-12 h-12 rounded-lg mr-4">
-                            <div class="flex-1">
-                                <h4 class="font-medium text-gray-800">Bohemian Rhapsody</h4>
-                                <p class="text-sm text-gray-600">Queen</p>
-                            </div>
-                            <div class="text-sm text-gray-500 mr-4">5:55</div>
-                            <button class="p-2 hover:bg-gray-200 rounded-full">
-                                <i data-lucide="play" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        
-                        <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=50&h=50&fit=crop" 
-                                 class="w-12 h-12 rounded-lg mr-4">
-                            <div class="flex-1">
-                                <h4 class="font-medium text-gray-800">Shape of You</h4>
-                                <p class="text-sm text-gray-600">Ed Sheeran</p>
-                            </div>
-                            <div class="text-sm text-gray-500 mr-4">3:53</div>
-                            <button class="p-2 hover:bg-gray-200 rounded-full">
-                                <i data-lucide="play" class="w-4 h-4"></i>
-                            </button>
+                            
+                            <div class="grid grid-cols-2 gap-4 overflow-y-auto flex-1">
+                                <!-- 专辑项 1 -->
+                            <a href="#" class="hover-scale">
+                                <div class="overflow-hidden rounded-lg shadow-sm mb-2">
+                                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=120&h=120&fit=crop" class="w-full aspect-square object-cover" alt="专辑封面">
+                                </div>
+                                <h4 class="font-medium text-sm text-gray-800 truncate">A Night At The Opera</h4>
+                                <p class="text-xs text-gray-500">Queen</p>
+                            </a>
+                            
+                            <!-- 专辑项 2 -->
+                            <a href="#" class="hover-scale">
+                                <div class="overflow-hidden rounded-lg shadow-sm mb-2">
+                                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=120&h=120&fit=crop" class="w-full aspect-square object-cover" alt="专辑封面">
+                                </div>
+                                <h4 class="font-medium text-sm text-gray-800 truncate">÷ (Divide)</h4>
+                                <p class="text-xs text-gray-500">Ed Sheeran</p>
+                            </a>
+                            
+                            <!-- 专辑项 3 -->
+                            <a href="#" class="hover-scale">
+                                <div class="overflow-hidden rounded-lg shadow-sm mb-2">
+                                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=120&h=120&fit=crop" class="w-full aspect-square object-cover" alt="专辑封面">
+                                </div>
+                                <h4 class="font-medium text-sm text-gray-800 truncate">When We All Fall Asleep...</h4>
+                                <p class="text-xs text-gray-500">Billie Eilish</p>
+                            </a>
+                            
+                            <!-- 专辑项 4 -->
+                            <a href="#" class="hover-scale">
+                                <div class="overflow-hidden rounded-lg shadow-sm mb-2">
+                                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=120&h=120&fit=crop" class="w-full aspect-square object-cover" alt="专辑封面">
+                                </div>
+                                <h4 class="font-medium text-sm text-gray-800 truncate">After Hours</h4>
+                                <p class="text-xs text-gray-500">The Weeknd</p>                            </a>                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 底部播放控制栏 -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 p-4">
-        <div class="flex items-center justify-between max-w-full mx-auto">
-            <!-- 当前播放歌曲信息 -->
-            <div class="flex items-center w-1/4">
-                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=60&h=60&fit=crop" 
-                     class="w-14 h-14 rounded-lg mr-4">
-                <div>
-                    <h4 class="font-medium text-gray-800">夜的钢琴曲五</h4>
-                    <p class="text-sm text-gray-600">石进</p>
-                </div>
-                <button class="ml-4 p-2 hover:bg-gray-100 rounded-full">
-                    <i data-lucide="heart" class="w-4 h-4 text-gray-600"></i>
-                </button>
-            </div>
-            
-            <!-- 播放控制 -->
-            <div class="flex flex-col items-center w-1/2">
-                <div class="flex items-center space-x-4 mb-2">
-                    <button class="p-2 hover:bg-gray-100 rounded-full">
-                        <i data-lucide="shuffle" class="w-4 h-4 text-gray-600"></i>
-                    </button>
-                    <button class="p-2 hover:bg-gray-100 rounded-full">
-                        <i data-lucide="skip-back" class="w-5 h-5 text-gray-600"></i>
-                    </button>
-                    <button class="p-3 bg-purple-600 hover:bg-purple-700 rounded-full text-white">
-                        <i data-lucide="play" class="w-6 h-6"></i>
-                    </button>
-                    <button class="p-2 hover:bg-gray-100 rounded-full">
-                        <i data-lucide="skip-forward" class="w-5 h-5 text-gray-600"></i>
-                    </button>
-                    <button class="p-2 hover:bg-gray-100 rounded-full">
-                        <i data-lucide="repeat" class="w-4 h-4 text-gray-600"></i>
-                    </button>
-                </div>
-                <!-- 进度条 -->
-                <div class="flex items-center space-x-3 w-full max-w-md">
-                    <span class="text-xs text-gray-600">2:31</span>
-                    <div class="flex-1 bg-gray-200 rounded-full h-1">
-                        <div class="bg-purple-600 h-1 rounded-full" style="width: 60%"></div>
-                    </div>
-                    <span class="text-xs text-gray-600">4:23</span>
-                </div>
-            </div>
-            
-            <!-- 右侧控制 -->
-            <div class="flex items-center space-x-3 w-1/4 justify-end">
-                <button class="p-2 hover:bg-gray-100 rounded-full">
-                    <i data-lucide="list-music" class="w-4 h-4 text-gray-600"></i>
-                </button>
-                <button class="p-2 hover:bg-gray-100 rounded-full">
-                    <i data-lucide="volume-2" class="w-4 h-4 text-gray-600"></i>
-                </button>
-                <div class="w-20 bg-gray-200 rounded-full h-1">
-                    <div class="bg-purple-600 h-1 rounded-full" style="width: 70%"></div>
                 </div>
             </div>
         </div>
