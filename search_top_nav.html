@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 - MusicBox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hover-scale {
+            transition: transform 0.2s ease-in-out;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        .main-content {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="main-content flex flex-col bg-gradient-to-br from-purple-50 to-blue-50">
+        <!-- 顶部导航栏 -->
+        <div class="bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200">
+            <!-- 主导航 -->
+            <div class="flex items-center justify-between p-4">
+                <div class="flex items-center space-x-8">
+                    <!-- 主要导航 -->
+                    <nav class="flex items-center space-x-6">
+                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="home" class="w-4 h-4 mr-2"></i>
+                            主页
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="library" class="w-4 h-4 mr-2"></i>
+                            音乐库
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
+                            <i data-lucide="list-music" class="w-4 h-4 mr-2"></i>
+                            播放列表
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-2 bg-purple-600 text-white rounded-full font-medium transition-colors">
+                            <i data-lucide="search" class="w-4 h-4 mr-2"></i>
+                            搜索
+                        </a>
+                    </nav>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- 搜索框 -->
+                    <div class="relative">
+                        <input type="text" placeholder="搜索音乐、艺术家、专辑、播放列表..." 
+                               class="pl-10 pr-4 py-2 border border-gray-300 rounded-full w-96 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200">
+                        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- 右侧功能 -->
+                    <button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <i data-lucide="bell" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <i data-lucide="settings" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                    <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center cursor-pointer">
+                        <i data-lucide="user" class="w-4 h-4 text-white"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 搜索筛选 -->
+            <div class="px-4 pb-3">
+                <div class="flex items-center space-x-4 overflow-x-auto">
+                    <span class="text-sm text-gray-500 font-medium whitespace-nowrap">搜索类型:</span>
+                    <button class="px-3 py-1.5 bg-purple-600 text-white rounded-full text-sm font-medium whitespace-nowrap">
+                        全部
+                    </button>
+                    <button class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium whitespace-nowrap">
+                        歌曲
+                    </button>
+                    <button class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium whitespace-nowrap">
+                        艺术家
+                    </button>
+                    <button class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium whitespace-nowrap">
+                        专辑
+                    </button>
+                    <button class="px-3 py-1.5 text-gray-600 hover:bg-gray-100 rounded-full text-sm font-medium whitespace-nowrap">
+                        播放列表
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="flex-1 p-6 overflow-y-auto">
+            <!-- 搜索状态为空时的界面 -->
+            <div class="max-w-4xl mx-auto">
+                <!-- 搜索建议 -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">发现音乐</h2>
+                    
+                    <!-- 热门搜索 -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">热门搜索</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <button class="px-4 py-2 bg-white border border-gray-200 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
+                                周杰伦
+                            </button>
+                            <button class="px-4 py-2 bg-white border border-gray-200 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
+                                夜曲
+                            </button>
+                            <button class="px-4 py-2 bg-white border border-gray-200 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
+                                流行音乐
+                            </button>
+                            <button class="px-4 py-2 bg-white border border-gray-200 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
+                                Taylor Swift
+                            </button>
+                            <button class="px-4 py-2 bg-white border border-gray-200 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
+                                经典老歌
+                            </button>
+                            <button class="px-4 py-2 bg-white border border-gray-200 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
+                                摇滚音乐
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 音乐类型 -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">浏览分类</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                            <div class="group cursor-pointer">
+                                <div class="aspect-square bg-gradient-to-br from-red-400 to-pink-600 rounded-lg mb-3 relative overflow-hidden hover-scale">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i data-lucide="heart" class="w-8 h-8 text-white"></i>
+                                    </div>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm text-center">流行音乐</h4>
+                            </div>
+                            
+                            <div class="group cursor-pointer">
+                                <div class="aspect-square bg-gradient-to-br from-blue-400 to-cyan-600 rounded-lg mb-3 relative overflow-hidden hover-scale">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i data-lucide="guitar" class="w-8 h-8 text-white"></i>
+                                    </div>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm text-center">摇滚音乐</h4>
+                            </div>
+                            
+                            <div class="group cursor-pointer">
+                                <div class="aspect-square bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg mb-3 relative overflow-hidden hover-scale">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
+                                    </div>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm text-center">轻音乐</h4>
+                            </div>
+                            
+                            <div class="group cursor-pointer">
+                                <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-600 rounded-lg mb-3 relative overflow-hidden hover-scale">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                                    </div>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm text-center">电子音乐</h4>
+                            </div>
+                            
+                            <div class="group cursor-pointer">
+                                <div class="aspect-square bg-gradient-to-br from-purple-400 to-indigo-600 rounded-lg mb-3 relative overflow-hidden hover-scale">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i data-lucide="piano" class="w-8 h-8 text-white"></i>
+                                    </div>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm text-center">古典音乐</h4>
+                            </div>
+                            
+                            <div class="group cursor-pointer">
+                                <div class="aspect-square bg-gradient-to-br from-pink-400 to-rose-600 rounded-lg mb-3 relative overflow-hidden hover-scale">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <i data-lucide="music-2" class="w-8 h-8 text-white"></i>
+                                    </div>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm text-center">爵士音乐</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 推荐艺术家 -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">热门艺术家</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                            <div class="group cursor-pointer text-center">
+                                <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full mx-auto mb-3 flex items-center justify-center hover-scale">
+                                    <i data-lucide="user" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm">周杰伦</h4>
+                                <p class="text-xs text-gray-500">华语流行</p>
+                            </div>
+                            
+                            <div class="group cursor-pointer text-center">
+                                <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-full mx-auto mb-3 flex items-center justify-center hover-scale">
+                                    <i data-lucide="user" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm">Taylor Swift</h4>
+                                <p class="text-xs text-gray-500">流行音乐</p>
+                            </div>
+                            
+                            <div class="group cursor-pointer text-center">
+                                <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full mx-auto mb-3 flex items-center justify-center hover-scale">
+                                    <i data-lucide="user" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm">邓紫棋</h4>
+                                <p class="text-xs text-gray-500">华语流行</p>
+                            </div>
+                            
+                            <div class="group cursor-pointer text-center">
+                                <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-full mx-auto mb-3 flex items-center justify-center hover-scale">
+                                    <i data-lucide="user" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm">薛之谦</h4>
+                                <p class="text-xs text-gray-500">华语流行</p>
+                            </div>
+                            
+                            <div class="group cursor-pointer text-center">
+                                <div class="w-24 h-24 bg-gradient-to-br from-red-400 to-pink-600 rounded-full mx-auto mb-3 flex items-center justify-center hover-scale">
+                                    <i data-lucide="user" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm">林俊杰</h4>
+                                <p class="text-xs text-gray-500">华语流行</p>
+                            </div>
+                            
+                            <div class="group cursor-pointer text-center">
+                                <div class="w-24 h-24 bg-gradient-to-br from-indigo-400 to-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center hover-scale">
+                                    <i data-lucide="user" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-900 text-sm">陈奕迅</h4>
+                                <p class="text-xs text-gray-500">华语流行</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 搜索历史 -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">最近搜索</h3>
+                            <button class="text-purple-600 hover:text-purple-700 text-sm font-medium">清除历史</button>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-center">
+                                    <i data-lucide="clock" class="w-4 h-4 text-gray-400 mr-3"></i>
+                                    <span class="text-gray-900">夜曲</span>
+                                </div>
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i data-lucide="x" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-center">
+                                    <i data-lucide="clock" class="w-4 h-4 text-gray-400 mr-3"></i>
+                                    <span class="text-gray-900">周杰伦</span>
+                                </div>
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i data-lucide="x" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                                <div class="flex items-center">
+                                    <i data-lucide="clock" class="w-4 h-4 text-gray-400 mr-3"></i>
+                                    <span class="text-gray-900">经典老歌</span>
+                                </div>
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <i data-lucide="x" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
