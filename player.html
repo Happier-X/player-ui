@@ -28,10 +28,19 @@
     <div class="main-content flex flex-col bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
         <!-- 顶部导航栏 -->
         <div class="bg-black/30 backdrop-blur-md shadow-sm border-b border-white/10">
-            <!-- 主导航 -->
-            <div class="flex items-center justify-between p-4">
-                <div class="flex items-center space-x-8">                    <!-- 主要导航 -->
-                    <nav class="flex items-center space-x-6">
+            <!-- 主导航 -->            <div class="flex items-center justify-between p-4">
+                <div class="flex items-center space-x-8">
+                    <!-- 前进后退按钮 -->
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white transition-colors" title="后退" onclick="history.back()">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button class="p-2 rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white transition-colors" title="前进" onclick="history.forward()">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- 主要导航 -->                    <nav class="flex items-center space-x-6">
                         <a href="home.html" class="flex items-center px-4 py-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full font-medium transition-colors">
                             <i data-lucide="music" class="w-4 h-4 mr-2"></i>
                             歌曲

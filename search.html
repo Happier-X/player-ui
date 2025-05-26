@@ -27,9 +27,18 @@
     <div class="main-content flex flex-col bg-gradient-to-br from-purple-50 to-blue-50">
         <!-- 顶部导航栏 -->
         <div class="bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200">
-            <!-- 主导航 -->
-            <div class="flex items-center justify-between p-4">
+            <!-- 主导航 -->            <div class="flex items-center justify-between p-4">
                 <div class="flex items-center space-x-8">
+                    <!-- 前进后退按钮 -->
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors" title="后退" onclick="history.back()">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </button>
+                        <button class="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors" title="前进" onclick="history.forward()">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    
                     <!-- 主要导航 -->                    <nav class="flex items-center space-x-6">
                         <a href="home.html" class="flex items-center px-4 py-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-full font-medium transition-colors">
                             <i data-lucide="music" class="w-4 h-4 mr-2"></i>
