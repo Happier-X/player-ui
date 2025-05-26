@@ -52,17 +52,10 @@
                                class="pl-10 pr-4 py-2 border border-gray-300 rounded-full w-80 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200">
                         <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-gray-400"></i>
                     </div>
-                    
-                    <!-- 右侧功能 -->
-                    <button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                        <i data-lucide="bell" class="w-5 h-5 text-gray-600"></i>
-                    </button>
+                      <!-- 右侧功能 -->
                     <button class="p-2 rounded-full bg-purple-100 text-purple-600">
                         <i data-lucide="settings" class="w-5 h-5"></i>
                     </button>
-                    <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center cursor-pointer">
-                        <i data-lucide="user" class="w-4 h-4 text-white"></i>
-                    </div>
                 </div>
             </div>
         </div>
@@ -71,13 +64,8 @@
         <div class="flex-1 flex overflow-hidden">
             <!-- 设置菜单 -->
             <div class="w-80 bg-white border-r border-gray-200 p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-6">设置</h2>
-                <nav class="space-y-2">
+                <h2 class="text-xl font-bold text-gray-900 mb-6">设置</h2>                <nav class="space-y-2">
                     <a href="#" class="flex items-center p-3 rounded-lg bg-purple-50 text-purple-700 font-medium">
-                        <i data-lucide="user" class="w-5 h-5 mr-3"></i>
-                        账户设置
-                    </a>
-                    <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
                         <i data-lucide="volume-2" class="w-5 h-5 mr-3"></i>
                         音频设置
                     </a>
@@ -88,10 +76,6 @@
                     <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
                         <i data-lucide="download" class="w-5 h-5 mr-3"></i>
                         下载设置
-                    </a>
-                    <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
-                        <i data-lucide="bell" class="w-5 h-5 mr-3"></i>
-                        通知设置
                     </a>
                     <a href="#" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-50">
                         <i data-lucide="shield" class="w-5 h-5 mr-3"></i>
@@ -110,137 +94,108 @@
                         关于应用
                     </a>
                 </nav>
-            </div>
-
-            <!-- 设置内容 -->
+            </div>            <!-- 设置内容 -->
             <div class="flex-1 p-6 overflow-y-auto">
-                <!-- 账户设置页面 -->
+                <!-- 音频设置页面 -->
                 <div class="max-w-4xl">
                     <div class="mb-8">
-                        <h1 class="text-3xl font-bold text-gray-900 mb-2">账户设置</h1>
-                        <p class="text-gray-600">管理你的个人信息和账户偏好</p>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">音频设置</h1>
+                        <p class="text-gray-600">调整你的音频播放体验和音质偏好</p>
                     </div>
 
-                    <!-- 个人资料 -->
+                    <!-- 播放质量 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">个人资料</h2>
-                        <div class="flex items-start space-x-6">
-                            <div class="flex-shrink-0">
-                                <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                                    <i data-lucide="user" class="w-10 h-10 text-white"></i>
-                                </div>
-                                <button class="mt-3 text-sm text-purple-600 hover:text-purple-700 font-medium">更换头像</button>
-                            </div>
-                            <div class="flex-1 space-y-4">
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">用户名</label>
-                                        <input type="text" value="音乐爱好者" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">显示名称</label>
-                                        <input type="text" value="小明" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">邮箱地址</label>
-                                    <input type="email" value="user@example.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">个人简介</label>
-                                    <textarea rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500" placeholder="介绍一下你自己..."></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex justify-end mt-6">
-                            <button class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-                                保存更改
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- 账户安全 -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">账户安全</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">播放质量</h2>
                         <div class="space-y-4">
-                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">密码</h3>
-                                    <p class="text-sm text-gray-500">上次更新：2个月前</p>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-3">音频质量</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="quality" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                                        <span class="ml-3 text-sm text-gray-700">标准质量 (128 kbps)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="quality" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-gray-300" checked>
+                                        <span class="ml-3 text-sm text-gray-700">高质量 (320 kbps)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="quality" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-gray-300">
+                                        <span class="ml-3 text-sm text-gray-700">无损质量 (FLAC)</span>
+                                    </label>
                                 </div>
-                                <button class="px-4 py-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-                                    更改密码
-                                </button>
-                            </div>
-                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">两步验证</h3>
-                                    <p class="text-sm text-gray-500">为你的账户添加额外安全保护</p>
-                                </div>
-                                <button class="px-4 py-2 bg-green-100 text-green-700 rounded-lg">
-                                    已启用
-                                </button>
-                            </div>
-                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">活动设备</h3>
-                                    <p class="text-sm text-gray-500">管理登录到你账户的设备</p>
-                                </div>
-                                <button class="px-4 py-2 text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-                                    查看设备
-                                </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 订阅信息 -->
+                    <!-- 音量控制 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">订阅信息</h2>
-                        <div class="flex items-center justify-between p-4 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-lg">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
-                                    <i data-lucide="crown" class="w-6 h-6 text-white"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-900">MusicBox Premium</h3>
-                                    <p class="text-sm text-gray-600">下次计费：2024年2月15日</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">音量控制</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">主音量</label>
+                                <div class="flex items-center space-x-4">
+                                    <i data-lucide="volume-1" class="w-4 h-4 text-gray-400"></i>
+                                    <input type="range" min="0" max="100" value="80" class="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider">
+                                    <i data-lucide="volume-2" class="w-4 h-4 text-gray-400"></i>
                                 </div>
                             </div>
-                            <div class="text-right">
-                                <p class="text-lg font-bold text-gray-900">¥15/月</p>
-                                <button class="text-sm text-purple-600 hover:text-purple-700">管理订阅</button>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium text-gray-900">音量均衡</h3>
+                                    <p class="text-sm text-gray-500">自动调整不同歌曲间的音量差异</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                </label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 隐私设置 -->
+                    <!-- 音效增强 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">音效增强</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium text-gray-900">环绕声效果</h3>
+                                    <p class="text-sm text-gray-500">增强音频的空间感和立体感</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-medium text-gray-900">低音增强</h3>
+                                    <p class="text-sm text-gray-500">增强低频音效表现</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 输出设备 -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">隐私设置</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">输出设备</h2>
                         <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">公开播放列表</h3>
-                                    <p class="text-sm text-gray-500">允许其他用户查看你的播放列表</p>
-                                </div>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" class="sr-only peer" checked>
-                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                                </label>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">音频输出设备</label>
+                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
+                                    <option>默认音频设备</option>
+                                    <option>扬声器 (Realtek High Definition Audio)</option>
+                                    <option>耳机 (Bluetooth)</option>
+                                    <option>USB 音频设备</option>
+                                </select>
                             </div>
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <h3 class="font-medium text-gray-900">显示最近播放</h3>
-                                    <p class="text-sm text-gray-500">在个人资料中显示最近播放的歌曲</p>
-                                </div>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" class="sr-only peer" checked>
-                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
-                                </label>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-medium text-gray-900">数据分析</h3>
-                                    <p class="text-sm text-gray-500">允许收集匿名使用数据以改善服务</p>
+                                    <h3 class="font-medium text-gray-900">独占模式</h3>
+                                    <p class="text-sm text-gray-500">获得更好的音频性能，但可能影响其他应用</p>
                                 </div>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" class="sr-only peer">
