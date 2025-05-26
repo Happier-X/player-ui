@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置 - MusicBox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>    <style>
+        .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .toggle-switch.active {
+            background-color: #8b5cf6;
+        }
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }        .toggle-switch.active::after {
+            transform: translateX(20px);
+        }
+        .main-content {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="main-content flex bg-gradient-to-br from-purple-50 to-blue-50">        <!-- 侧边栏 -->
+        <div class="w-64 bg-gray-900 text-white flex flex-col">            <!-- 导航菜单 -->
+            <nav class="flex-1 p-4 pt-6">
+                <div class="space-y-2">
+                    <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i data-lucide="home" class="w-5 h-5 mr-3"></i>
+                        主页
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i data-lucide="library" class="w-5 h-5 mr-3"></i>
+                        音乐库
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i data-lucide="list-music" class="w-5 h-5 mr-3"></i>
+                        播放列表
+                    </a>
+                    <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i data-lucide="search" class="w-5 h-5 mr-3"></i>
+                        搜索
+                    </a>
+                </div>
+                
+                <!-- 设置选中状态 -->
+                <div class="mt-8 p-3 bg-purple-600 rounded-lg">
+                    <div class="flex items-center">
+                        <i data-lucide="settings" class="w-5 h-5 mr-3"></i>
+                        设置
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- 主内容区域 -->
+        <div class="flex-1 flex flex-col">
+            <!-- 顶部栏 -->
+            <div class="bg-white/80 backdrop-blur-md shadow-sm p-4 flex items-center justify-between border-b border-gray-200">
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                    <h2 class="text-xl font-semibold text-gray-800">设置</h2>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center cursor-pointer">
+                        <i data-lucide="user" class="w-4 h-4 text-white"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 内容区域 -->
+            <div class="flex-1 p-8 overflow-y-auto">
+                <div class="max-w-4xl mx-auto">
+                    <!-- 用户资料 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-6">用户资料</h3>
+                        <div class="flex items-center space-x-6">
+                            <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                音
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">音乐爱好者</h4>
+                                <p class="text-gray-600 mb-3">music.lover@example.com</p>
+                                <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                                    编辑资料
+                                </button>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-600">会员等级</p>
+                                <p class="font-semibold text-purple-600">高级会员</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 音频设置 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-6">音频设置</h3>
+                        <div class="space-y-6">
+                            <!-- 音质设置 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">音质</h4>
+                                    <p class="text-sm text-gray-600">选择音频播放质量</p>
+                                </div>
+                                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
+                                    <option>标准 (128 kbps)</option>
+                                    <option>高品质 (320 kbps)</option>
+                                    <option selected>无损 (FLAC)</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 音量均衡 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">音量均衡</h4>
+                                    <p class="text-sm text-gray-600">自动调节歌曲音量</p>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                            </div>
+                            
+                            <!-- 交叉渐变 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">交叉渐变</h4>
+                                    <p class="text-sm text-gray-600">歌曲间平滑过渡</p>
+                                </div>
+                                <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
+                            </div>
+                            
+                            <!-- 输出设备 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">输出设备</h4>
+                                    <p class="text-sm text-gray-600">选择音频输出设备</p>
+                                </div>
+                                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
+                                    <option selected>系统默认</option>
+                                    <option>扬声器 (内置)</option>
+                                    <option>蓝牙耳机</option>
+                                    <option>USB 耳机</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 播放设置 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-6">播放设置</h3>
+                        <div class="space-y-6">
+                            <!-- 自动播放 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">自动播放</h4>
+                                    <p class="text-sm text-gray-600">歌曲结束后自动播放下一首</p>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                            </div>
+                            
+                            <!-- 重复播放 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">重复播放模式</h4>
+                                    <p class="text-sm text-gray-600">设置默认的重复播放模式</p>
+                                </div>
+                                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
+                                    <option selected>不重复</option>
+                                    <option>重复单曲</option>
+                                    <option>重复列表</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 随机播放 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">随机播放</h4>
+                                    <p class="text-sm text-gray-600">默认启用随机播放</p>
+                                </div>
+                                <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
+                            </div>
+                            
+                            <!-- 淡入淡出时间 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">淡入淡出时间</h4>
+                                    <p class="text-sm text-gray-600">歌曲开始和结束的淡入淡出时长</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-sm text-gray-600">1秒</span>
+                                    <div class="w-24 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                    <span class="text-sm text-gray-600">5秒</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 界面设置 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-6">界面设置</h3>
+                        <div class="space-y-6">
+                            <!-- 主题 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">主题</h4>
+                                    <p class="text-sm text-gray-600">选择应用程序外观</p>
+                                </div>
+                                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500">
+                                    <option>自动</option>
+                                    <option selected>浅色</option>
+                                    <option>深色</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 动画效果 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">动画效果</h4>
+                                    <p class="text-sm text-gray-600">启用界面过渡动画</p>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                            </div>
+                            
+                            <!-- 显示歌词 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">显示歌词</h4>
+                                    <p class="text-sm text-gray-600">播放时自动显示歌词</p>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                            </div>
+                            
+                            <!-- 迷你播放器 -->
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">迷你播放器</h4>
+                                    <p class="text-sm text-gray-600">最小化时显示迷你播放器</p>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 通知设置 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-6">通知设置</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">桌面通知</h4>
+                                    <p class="text-sm text-gray-600">显示歌曲切换通知</p>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-medium text-gray-800">新功能提醒</h4>
+                                    <p class="text-sm text-gray-600">接收应用更新和新功能通知</p>
+                                </div>
+                                <div class="toggle-switch active" onclick="toggleSwitch(this)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 快捷键设置 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-6">快捷键</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-gray-700">播放/暂停</span>
+                                <kbd class="px-3 py-1 bg-gray-100 rounded border text-sm">Space</kbd>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-gray-700">上一首</span>
+                                <kbd class="px-3 py-1 bg-gray-100 rounded border text-sm">Ctrl + ←</kbd>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-gray-700">下一首</span>
+                                <kbd class="px-3 py-1 bg-gray-100 rounded border text-sm">Ctrl + →</kbd>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-gray-700">音量增加</span>
+                                <kbd class="px-3 py-1 bg-gray-100 rounded border text-sm">Ctrl + ↑</kbd>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-gray-700">音量减少</span>
+                                <kbd class="px-3 py-1 bg-gray-100 rounded border text-sm">Ctrl + ↓</kbd>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 关于 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-6">关于 MusicBox</h3>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                                <i data-lucide="music" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800">MusicBox</h4>
+                                <p class="text-gray-600">版本 2.1.0</p>
+                                <p class="text-sm text-gray-500">© 2024 MusicBox Team</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-4">
+                            <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                                检查更新
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                                许可协议
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                                隐私政策
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        lucide.createIcons();
+        
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

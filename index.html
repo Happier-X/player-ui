@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器原型展示 - MusicBox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .prototype-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }        .prototype-title {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: white;
+            padding: 12px 24px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+        .window-controls {
+            display: flex;
+            gap: 8px;
+        }
+        .control-btn {
+            width: 18px;
+            height: 18px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .control-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .control-btn.close:hover {
+            background-color: #e53e3e;
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            display: block;
+        }        .page-container {
+            margin-bottom: 32px;
+        }
+        .prototype-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-[1600px] mx-auto">
+        <!-- 标题区域 -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-white mb-4">🎵 MusicBox</h1>
+            <p class="text-xl text-white/80">音乐播放器桌面端应用 - 高保真UI原型</p>
+            <div class="mt-6 flex justify-center space-x-6 text-white/70">
+                <span>✨ 现代化设计</span>
+                <span>🎨 高保真界面</span>
+                <span>🖥️ 桌面端体验</span>
+            </div>
+        </div>
+          <!-- 原型展示区域 -->
+        <div class="space-y-8">
+            <!-- 主界面 - 音乐推荐 -->
+            <div class="page-container">
+                <div class="prototype-container">                    <div class="prototype-title">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
+                                <i data-lucide="music" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="font-bold mr-3">MusicBox</span>
+                        </div>
+                        <div class="window-controls">
+                            <div class="control-btn" title="最小化">
+                                <i data-lucide="minus" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn" title="最大化">
+                                <i data-lucide="square" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn close" title="关闭">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="home.html" height="675"></iframe>
+                </div>
+            </div>
+            
+            <!-- 音乐库界面 -->
+            <div class="page-container">
+                <div class="prototype-container">                    <div class="prototype-title">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
+                                <i data-lucide="music" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="font-bold mr-3">MusicBox</span>
+                            
+                        </div>
+                        <div class="window-controls">
+                            <div class="control-btn" title="最小化">
+                                <i data-lucide="minus" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn" title="最大化">
+                                <i data-lucide="square" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn close" title="关闭">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="library.html" height="675"></iframe>
+                </div>
+            </div>
+            
+            <!-- 播放列表界面 -->
+            <div class="page-container">
+                <div class="prototype-container">                    <div class="prototype-title">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
+                                <i data-lucide="music" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="font-bold mr-3">MusicBox</span>
+                            
+                        </div>
+                        <div class="window-controls">
+                            <div class="control-btn" title="最小化">
+                                <i data-lucide="minus" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn" title="最大化">
+                                <i data-lucide="square" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn close" title="关闭">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="playlist.html" height="675"></iframe>
+                </div>
+            </div>
+            
+            <!-- 搜索界面 -->
+            <div class="page-container">
+                <div class="prototype-container">                    <div class="prototype-title">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
+                                <i data-lucide="music" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="font-bold mr-3">MusicBox</span>
+                            
+                        </div>
+                        <div class="window-controls">
+                            <div class="control-btn" title="最小化">
+                                <i data-lucide="minus" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn" title="最大化">
+                                <i data-lucide="square" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn close" title="关闭">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="search.html" height="675"></iframe>
+                </div>
+            </div>
+            
+            <!-- 播放器详情界面 -->
+            <div class="page-container">
+                <div class="prototype-container">                    <div class="prototype-title">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
+                                <i data-lucide="music" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="font-bold mr-3">MusicBox</span>
+                            
+                        </div>
+                        <div class="window-controls">
+                            <div class="control-btn" title="最小化">
+                                <i data-lucide="minus" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn" title="最大化">
+                                <i data-lucide="square" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn close" title="关闭">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="player.html" height="675"></iframe>
+                </div>
+            </div>
+            
+            <!-- 设置界面 -->
+            <div class="page-container">
+                <div class="prototype-container">                    <div class="prototype-title">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-2">
+                                <i data-lucide="music" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="font-bold mr-3">MusicBox</span>
+                            
+                        </div>
+                        <div class="window-controls">
+                            <div class="control-btn" title="最小化">
+                                <i data-lucide="minus" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn" title="最大化">
+                                <i data-lucide="square" class="w-3 h-3"></i>
+                            </div>
+                            <div class="control-btn close" title="关闭">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe src="settings.html" height="675"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="text-center mt-12 text-white/60">
+            <p>© 2024 MusicBox - 高保真桌面端音乐播放器原型</p>
+        </div>
+    </div>
+    
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
